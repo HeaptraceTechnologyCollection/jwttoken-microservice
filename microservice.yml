@@ -1,0 +1,46 @@
+omg: 1
+lifecycle:
+  startup:
+    command: ["node", "index.js"]
+info:
+  version: 1.0.0
+  title: JWT  
+  description: This is a simple JWT Generate/Validate Token
+  contact:
+    name: RohitS
+    url: https://github.com/ht68rohit
+    email: rohits@heptrace.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT 
+actions:
+  generate:
+    help: generate token
+    http:
+      port: 5000
+      method: post
+      path: /generate
+      contentType: application/json
+    arguments:
+      content:
+        type: string
+        in: requestBody
+        required: true  
+      output:
+        contentType: application/json
+        type: string
+  validate:
+      help: validate token
+      http:
+        port: 5000
+        method: post
+        path: /validate
+        contentType: application/json
+      arguments:
+        content:
+            type: string
+            in: requestBody
+            required: true
+        output:
+          contentType: application/json
+          type: string
